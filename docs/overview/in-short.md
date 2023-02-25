@@ -1,8 +1,7 @@
 ---
 sidebar_position: 2
 ---
-
-# In-short (Architecture)
+# In short (Architecture)
 
 This article is meant to explain the architectural flow and flow event from client to data source and back. 
 
@@ -10,7 +9,7 @@ This article is meant to explain the architectural flow and flow event from clie
 ![Niom App architecture](../../static/img/overview/niom-flow.png)
 
 ## Main.go
-The [main.go](https://github.com/go-niom/niom-sample/blob/master/main.go) is entry point the application.
+The [main.go](https://github.com/go-niom/niom-sample/blob/master/main.go) is the entry point of the application.
 
 ```go
 // @title Niom-Sample
@@ -27,14 +26,14 @@ func main() {
 	server.Serve()
 }
 ```
-The comments above the main() is Declarative Swagger Comments Format (DCF) you may read more about it [here](https://github.com/swaggo/swag#declarative-comments-format).
+The comments above the main() is in Declarative Swagger Comments Format (DCF) you may read more about it [here](https://github.com/swaggo/swag#declarative-comments-format).
 
 In short: Here we have done Swagger documentation for the API using annotations in the comments. The annotations start with the "@" symbol and provide information about the API's title, version, description, and authentication requirements. Specifically, the annotation "@in header" specifies that the authentication token should be provided in the header of the HTTP request.
 
 ```go
 config.LoadAllConfigs(".env")
 ```
-Loads all the necessary configurations for the app using the "config" package's "LoadAllConfigs" function. LoadAllConfigs load configs from the [`.env`](https://github.com/go-niom/niom-sample/blob/master/.env) file. The `.env`  file must be at root directory or you may specify custom path as `./dir/prod/prod.env`
+Loads all the necessary configurations for the app using the "config" package's "LoadAllConfigs" function. LoadAllConfigs load configs from the [`.env`](https://github.com/go-niom/niom-sample/blob/master/.env) file. The `.env`  file must be in the current directory or you may specify a custom path as `./dir/prod/prod.env`
 
 ```go
 server.Serve()
@@ -64,7 +63,7 @@ func Serve() {
 }
 ```
 
-The function begins by loading the configuration for the app using the AppCfg and FiberConfig functions from the [config](https://github.com/go-niom/niom-sample/tree/master/pkg/config) package . Then initialize the server app to served.
+The function begins by loading the configuration for the app using the AppCfg and FiberConfig functions from the [config](https://github.com/go-niom/niom-sample/tree/master/pkg/config) package. Then initialize the server app to serve.
 
 ```go
 func Serve() {
@@ -80,4 +79,4 @@ func Serve() {
      // ....other codes
 }
 ```
-The `initConnectors()` from [connecter.go]("") may use to initialize the app level connector such logger, database, etc. The `registerMiddleware` may to register global middle ware he we have initialized api logger to monitor the request whereas `registerRouters` may use to register child router  and router level middleware. Complete code can be [here](https://github.com/go-niom/niom-sample/blob/master/server/server.go) which is well commented for self understanding
+The `initConnectors()` from connecter.go may use to initialize the app-level connector such as logger, database, etc. The `registerMiddleware` you may use to register global middleware here we have initialized API logger to monitor the request whereas `registerRouters` may use to register child router and router level middleware. Complete code can be [here](https://github.com/go-niom/niom-sample/blob/master/server/server.go) which is well commented for self-understanding.

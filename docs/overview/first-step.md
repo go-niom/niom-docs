@@ -21,7 +21,7 @@ $ go version #output go version go1.19 darwin/amd64
 
 ### Setup
 
-Installing and creating a new project with the [Niom](/cli/overview) is quite straightforward with the following commands in your PC terminal:
+Installing and creating a new project with the Niom is quite straightforward with the following commands in your PC terminal:
 
 ```base
 $ go install github.com/go-niom/niom@latest  

@@ -7,7 +7,7 @@ sidebar_position: 3
 Controllers are responsible for handling incoming `requests` and returning `responses` to the client.
 
 ### Generate
-To generate a controller you may below commands first one will create `comments` controller just into `/src` whereas second will create `comments` controller at `/src/post`
+To generate a controller you may below commands first one will create a `comments` controller just into `/`src` whereas the second `will create `a comments` controller at` `/src/post`
 
 ```shell
 $ niom go co comments #co for controller
